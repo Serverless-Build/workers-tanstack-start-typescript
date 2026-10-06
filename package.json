@@ -1,0 +1,32 @@
+{
+  "name": "workers-tanstack-start-typescript",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.22.0" },
+  "scripts": {
+    "dev": "vite dev --host 127.0.0.1",
+    "build": "vite build",
+    "cf-typegen": "wrangler types",
+    "check": "npm run cf-typegen && npm run build && tsc --noEmit && wrangler deploy --dry-run",
+    "bundle": "wrangler deploy --dry-run --outdir dist/worker-bundle",
+    "start": "wrangler dev",
+    "preview": "npm run build && vite preview --host 127.0.0.1",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "1.170.41",
+    "@tanstack/react-start": "1.168.60",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.62.5",
+    "@vitejs/plugin-react": "6.1.2",
+    "@types/node": "24.7.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "typescript": "6.0.3",
+    "vite": "8.3.2",
+    "wrangler": "4.147.0"
+  }
+}
